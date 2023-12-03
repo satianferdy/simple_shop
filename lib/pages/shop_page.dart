@@ -21,12 +21,15 @@ class _ShopPageState extends State<ShopPage> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('Successfully added!'),
-        content: Text('${shoe.name} has been added to your cart'),
+        backgroundColor: Colors.grey[900],
+        title: const Text('Successfully added!',
+            style: TextStyle(color: Colors.white)),
+        content: Text('${shoe.name} has been added to your cart',
+            style: const TextStyle(color: Colors.white)),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text('OK'),
+            child: const Text('OK', style: TextStyle(color: Colors.white)),
           ),
         ],
       ),
@@ -106,7 +109,7 @@ class _ShopPageState extends State<ShopPage> {
           // hot picks list
           Expanded(
             child: ListView.builder(
-              itemCount: 4,
+              itemCount: value.getShoeList().length,
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
                 // get a shoe from the list
